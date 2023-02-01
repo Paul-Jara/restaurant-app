@@ -1,19 +1,18 @@
 import { useState } from "react"
 import LabelInput from "../component/LabelInput"
+import { postData } from "../util/myAPIs"
 
-const Booking = () => {
-    const [name, setName] = useState()
-    const [lastName, setLastName] = useState()
-    const [email, setEmail] = useState()
-    const [phone, setPhone] = useState()
-    const [celebration, setCelebration] = useState()
+const Booking = ({data}) => {
+    const [name, setName] = useState(data?.name)
+    const [lastName, setLastName] = useState(data?.lastName)
+    const [email, setEmail] = useState(data?.email)
+    const [phone, setPhone] = useState(data?.phone)
+    const [celebration, setCelebration] = useState(data?.celebration)
 
-    const saveBookin = () => {
-        alert('Reserva guardada exitosamente!' + JSON.stringify(booking))
+    const saveBooking = () => {
+        let booking = {'name': name, 'lastName': lastName, 'email': email, 'phone': phone, 'celebration': celebration}
+        postData('booking', booking)
     }
-
-    let booking = {'name': name, 'lastName': lastName, 'email': email, 'phone': phone, 'celebration': celebration}
-    
 
     return (
         <section>
@@ -25,7 +24,7 @@ const Booking = () => {
                     <LabelInput labelText="Télefono" type="text" setter={setPhone}></LabelInput>
                     <LabelInput labelText="Celebración" type="text" setter={setCelebration}></LabelInput>
                 </div>
-                <button onClick={saveBookin}>Reservar</button>
+                <button onClick={saveBooking}>{data ? 'Actualizar reserva' : 'Reservar'}</button>
             </article>
         </section>
     )
