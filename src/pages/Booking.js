@@ -1,8 +1,11 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import LabelInput from "../component/LabelInput"
 import { postData } from "../util/myAPIs"
 
 const Booking = ({data}) => {
+    const navigate = useNavigate()
+
     const [name, setName] = useState(data?.name)
     const [lastName, setLastName] = useState(data?.lastName)
     const [email, setEmail] = useState(data?.email)
@@ -12,6 +15,7 @@ const Booking = ({data}) => {
     const saveBooking = () => {
         let booking = {'name': name, 'lastName': lastName, 'email': email, 'phone': phone, 'celebration': celebration}
         postData('booking', booking)
+        navigate('/booking-order')
     }
 
     return (

@@ -7,6 +7,7 @@ import { AddFood } from './pages/AddFood';
 import { AboutUs } from './pages/AboutUs';
 import { Order } from './pages/Order';
 import { MessageSuccess } from './pages/MessageSuccess';
+import { BookingSuccess } from './pages/BookingSuccess';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/food/:table/:id' element={<AddFood />} /> 
           <Route path='/order' element={<Order />} />
           <Route path='/success-order' element={<MessageSuccess />} />
+          <Route path='/booking-order' element={<BookingSuccess />} />
         </Route>
       </Routes>
     </div>

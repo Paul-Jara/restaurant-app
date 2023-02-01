@@ -5,7 +5,7 @@ export const Food = ({data, table}) => {
     const navigate = useNavigate()
 
     return (
-        <div>
+        <div className="food">
             <p>{food.name}</p>
             <p>{food.ingredient}</p>
             <p>{food.price}</p>

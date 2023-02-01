@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom"
+
 export const Header = () => {
     return (
         <header>
             <nav>
                 <ul>
-                    <li>Inicio</li>
-                    <li>Reservación</li>
-                    <li>Mi pedido</li>
-                    <li>Menú</li>
+                    <li><Link to='/'>Inicio</Link></li>
+                    <li><Link to='/booking'>Reservación</Link></li>
+                    <li><Link to='/order'>Mi orden</Link></li>
+                    <li><Link to='/menu'>Menú</Link></li>
                     <li>Ayuda</li>
                 </ul>
             </nav>
