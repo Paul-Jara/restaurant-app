@@ -3,22 +3,26 @@ main {
   margin-bottom: -70px;
 }
 
-html, body, #root, .App {
+html,
+body,
+#root,
+.App {
   height: 100%;
   margin: 0;
 }
 
 header {
   height: 90px;
-	width: 100%;
-	color: white;
-	background-color: black;
+  width: 100%;
+  color: white;
+  background-color: black;
   display: flex;
-	justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
 }
 
-header ul, footer ul {
+header ul,
+footer ul {
   width: auto;
   display: flex;
   flex-direction: row;
@@ -34,12 +38,20 @@ header ul, footer ul {
   height: 40px;
 }
 
-header li, footer li {
+header li,
+footer li {
   list-style: none;
 }
 
-header a, footer a {
+header a,
+footer a {
   color: white;
+}
+
+#title {
+  font-size: 25px;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
 section {
@@ -71,15 +83,52 @@ article {
   justify-content: center;
 }
 
-#article-booking, #article-menu, #article-order, #article-add-food, #article-admin {
+#article-booking,
+#article-menu,
+#article-order,
+#article-add-food,
+#article-admin {
   margin: 50px;
   flex-direction: column;
   align-items: center;
 }
 
-/*#article-about {
+#article-about {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+}
 
-}*/
+.jumbotron-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumbo-impact {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumbo-item {
+  width: 50%;
+}
+
+.margin-item {
+  margin: 50px;
+}
+
+#menu-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
 .menu-food {
   width: 200px;
   height: 200px;
@@ -87,7 +136,7 @@ article {
 
 .mesa-elegante {
   background-image: url("./images/mesa-elegante.jpg");
-  width: 1000px;
+  width: 1200px;
   height: 300px;
 }
 
@@ -97,21 +146,21 @@ article {
 }
 
 footer {
-	height: 70px;
-	width: 100%;
-	color: white;
-	background-color: black;
+  height: 70px;
+  width: 100%;
+  color: white;
+  background-color: black;
   display: flex;
-	justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .food {
   padding: 10px;
-	border: 1px solid rgb(0, 0, 0);
-	border-radius: 8px;
-	width: 250px;
-	margin: 8px;
-	color: black;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  width: 250px;
+  margin: 8px;
+  color: black;
   height: fit-content;
 }
 
@@ -161,15 +210,21 @@ button {
   #article-about {
     flex-direction: column;
     margin: 20px;
+    width: 1024px;
     align-items: center;
   }
-  
-  .jumbo-impact{
+
+  .jumbo-impact {
     display: flex;
-    flex-direction: column;
-    margin: 20px;
+    flex-direction: row;
+    width: 1024px;
     align-items: center;
     justify-content: center;
+  }
+
+  .mesa-elegante {
+    width: 1024px;
+    height: 300px;
   }
 
 }
@@ -179,44 +234,51 @@ button {
   #article-about {
     flex-direction: column;
     margin: 20px;
+    width: 767px;
     align-items: center;
   }
-  
-  .jumbo-impact{
+
+  .jumbo-impact {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    width: 768px;
     align-items: center;
     justify-content: center;
   }
 
-  .mesa-elegante shadow {
-    width: max-content;
+  .mesa-elegante {
+    width: 768px;
   }
 
 }
 
 @media screen and (max-width: 767px) {
 
-  .mesa-elegante shadow {
+  .mesa-elegante {
     max-height: fit-content;
+    width: 500px;
+  }
+
+  #jumbotron {
+    width: 100%;
+  }
+
+  .jumbo-impact {
+    flex-direction: column;
   }
 
   #article-about {
+    width: 550px;
     flex-direction: column;
     margin: 20px;
     align-items: center;
   }
 
   .page-name {
-      font-size: 60px;
-      margin-bottom: 20px;
-      margin-top: 20px;
-  }
-
-  .h2-title {
-      font-size: 25px;
-      margin-bottom: 15px;
+    font-size: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: auto;
   }
 
   header {
@@ -229,24 +291,22 @@ button {
     align-items: flex-start;
   }
 
+  #impact-message {
+    white-space:initial
+  }
+
   .shadow {
-      border: 1px solid black;
-      box-shadow: 0 0 5px 1px #282a2d;
+    border: 1px solid black;
+    box-shadow: 0 0 5px 1px #282a2d;
   }
 
   footer {
-      height: auto;
+    height: auto;
   }
 
   footer ul {
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
-
-  footer div {
-      flex-direction: column !important;
-      align-items: flex-start !important;
-  }
-
 }

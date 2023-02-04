@@ -145,8 +145,8 @@ const LoadMenu = () => {
     
     return (
         <div>
-            <button onClick={loadMenu}>Load food</button>
-            <button onClick={deleteMenu}>Delete food</button>
+            <button onClick={loadMenu}>Cargar datos de incio a Firebase</button>
+            <button onClick={deleteMenu}>Eliminar datos del menú incial</button>
         </div>
     ) 
 }

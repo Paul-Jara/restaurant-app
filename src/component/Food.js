@@ -15,7 +15,7 @@ export const Food = ({data, table}) => {
             <p>{food.name}</p>
             {food.ingredients && <p><strong>Ingredientes: </strong>{food.ingredients}</p>}
             <p><strong>Precio: </strong>{food.price}</p>
-            <button onClick={() => navigate(`/food/${table}/${data.id}`)}>Agregar</button>
+            <button onClick={() => table ? navigate(`/food/${table}/${data.id}`) : alert('Ingrese el número de sú mesa por favor!')}>Agregar</button>
         </div>
     )
 }

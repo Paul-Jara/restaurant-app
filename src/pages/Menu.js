@@ -30,6 +30,7 @@ const Menu = () => {
     return (
         <section>
             <article id="article-menu">
+                <h1>Elige de nuestra selecta variedad de platos.</h1>
                 <div className="label-input-container">
                     <LabelInput labelText="Número de mesa" setter={setTable} type="text" defaultValue={table}/>
                     <button onClick={() => navigate('/order')}>Verificar pedido</button>

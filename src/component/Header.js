@@ -4,6 +4,7 @@ export const Header = () => {
     return (
         <header>
             <img id="nav-icon" className="icon" src={require('../images/tree-icon.jpg')}/>
+            <p id="title">El Pailón Quiteño</p>
             <nav>
                 <ul>
                     <li><Link to='/'>Inicio</Link></li>
