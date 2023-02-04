@@ -13,8 +13,8 @@ const AddFood = () => {
 
     useEffect(() => {
         getDefValue()
-        setFoods(fillMenu())
-        //getData('food', setFoods)
+        //setFoods(fillMenu())
+        getData('food', setFoods)
     }, [])
 
     const getDefValue = () => {

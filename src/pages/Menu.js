@@ -11,8 +11,8 @@ const Menu = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        setFoods(fillMenu()) 
-        //getData('food', setFoods)
+        //setFoods(fillMenu()) 
+        getData('food', setFoods)
         getTable()
     }, [])
 

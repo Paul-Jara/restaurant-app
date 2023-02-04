@@ -1,5 +1,4 @@
 import { useState } from "react"
-import DatePicker from "react-datepicker";
 import { useNavigate } from "react-router-dom"
 import LabelInput from "../component/LabelInput"
 import { postData } from "../util/myAPIs"
