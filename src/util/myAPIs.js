@@ -18,6 +18,6 @@ export const putData = async(collectionName, idObj, obj, setter) => {
 }
 
 export const deleteData = async(collectionName, idObj, setter) => {
-    await deleteDoc(collection(db, collectionName, idObj))
+    await deleteDoc(doc(db, collectionName, idObj))
     setter && getData(collection, setter)
 }

@@ -6,9 +6,15 @@ export const Food = ({data, table}) => {
 
     return (
         <div className="food">
+            {
+                food?.path && 
+                <div className="food-image">
+                    <img className="menu-food" src={require(`../images/${food?.path}`)} />
+                </div>
+            }
             <p>{food.name}</p>
-            <p>{food.ingredient}</p>
-            <p>{food.price}</p>
+            {food.ingredients && <p><strong>Ingredientes: </strong>{food.ingredients}</p>}
+            <p><strong>Precio: </strong>{food.price}</p>
             <button onClick={() => navigate(`/food/${table}/${data.id}`)}>Agregar</button>
         </div>
     )

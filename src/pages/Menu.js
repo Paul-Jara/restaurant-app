@@ -3,6 +3,7 @@ import { getData } from "../util/myAPIs"
 import { Food } from "../component/Food"
 import LabelInput from "../component/LabelInput"
 import { useNavigate } from "react-router-dom"
+import { fillMenu } from "../util/LoadMenu"
 
 const Menu = () => {
     const [foods, setFoods] = useState([])
@@ -10,7 +11,8 @@ const Menu = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        getData('food', setFoods)
+        setFoods(fillMenu()) 
+        //getData('food', setFoods)
         getTable()
     }, [])
 
@@ -27,14 +29,18 @@ const Menu = () => {
     
     return (
         <section>
-            <article>
-                <LabelInput labelText="Número de mesa" setter={setTable} type="text" defaultValue={table}/>
-                {
-                    foods.map((food, index) => {
-                        return <Food data={food} table={table} key={index}></Food>
-                    })
-                }
-                <button onClick={() => navigate('/order')}>Verificar pedido</button>
+            <article id="article-menu">
+                <div className="label-input-container">
+                    <LabelInput labelText="Número de mesa" setter={setTable} type="text" defaultValue={table}/>
+                    <button onClick={() => navigate('/order')}>Verificar pedido</button>
+                </div>
+                <div id="menu-container">
+                    {
+                        foods.map((food, index) => {
+                            return <Food data={food} table={table} key={index}></Food>
+                        })
+                    }
+                </div>
             </article>
         </section>
     )

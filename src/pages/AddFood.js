@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getData } from "../util/myAPIs"
 import LabelInput from "../component/LabelInput"
+import { fillMenu } from "../util/LoadMenu"
 
 const AddFood = () => {
     const [foods, setFoods] = useState([])
@@ -12,7 +13,8 @@ const AddFood = () => {
 
     useEffect(() => {
         getDefValue()
-        getData('food', setFoods)
+        setFoods(fillMenu())
+        //getData('food', setFoods)
     }, [])
 
     const getDefValue = () => {
@@ -66,14 +68,16 @@ const AddFood = () => {
 
     return (
         <section>
-            <article>
-                <div>
-                    <p>{food?.name}</p>
-                    <p>{food?.ingredient}</p>
-                    <p>{food?.price}</p>
+            <article id="article-add-food">
+                <div className="add-food">
+                    <p>Nombre: {food?.name}</p>
+                    {food?.ingredients && <p>Ingredientes: {food?.ingredients}</p>}
+                    <p>Precio ${food?.price}</p>
                 </div>
-                <LabelInput labelText="Cantidad" defaultValue={quantity} type="text" setter={setQuantity} />
-                <button onClick={addToCart}>Confirmar</button>
+                <div className="label-input-container">
+                    <LabelInput labelText="Cantidad" defaultValue={quantity} type="text" setter={setQuantity} />
+                </div>
+                <button onClick={addToCart}>Agregar al carrito</button>
             </article>
         </section>
     )

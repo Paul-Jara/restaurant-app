@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { fillMenu } from "../util/LoadMenu"
 import { getData, postData } from "../util/myAPIs"
 
 const Order = () => {
@@ -8,7 +9,8 @@ const Order = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        getData('food', setFoods)
+        setFoods(fillMenu()) 
+        //getData('food', setFoods)
         let auxOrderDetail = localStorage.getItem('orderDetail')
         if(auxOrderDetail) {
             setOrderDetail(JSON.parse(auxOrderDetail))
@@ -20,25 +22,50 @@ const Order = () => {
         localStorage.removeItem('orderDetail')
         navigate('/success-order')
     }
+    let totalPayment = 0
 
     return (
         <section>
-            <article>
+            <article id="article-order">
                 <h1>Detalle de la orden</h1>
-                {
-                    foods && orderDetail?.orderItems.map((item, index) => {
-                        let food
-                        foods.forEach(foodItem => {
-                            if(foodItem.id === item.foodId) {
-                                food = foodItem.data()
-                                return
-                            }
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio U</th>
+                            <th>Precio x cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        foods && orderDetail?.orderItems.map((item, index) => {
+                            let food
+                            foods.forEach(foodItem => {
+                                if(foodItem.id === item.foodId) {
+                                    food = foodItem.data()
+                                    totalPayment += parseFloat(food?.price) * item?.quantity
+                                    return
+                                }
+                            })
+                            return (
+                                <tr key={index}>
+                                    <td>{food?.name}</td>
+                                    <td>{item?.quantity}</td>
+                                    <td>{food?.price}</td>
+                                    <td>{parseFloat(food?.price) * item?.quantity}</td>
+                                </tr>
+                            )
                         })
-                        return (
-                            <p key={index}>{food?.name} {item?.quantity}</p>
-                        )
-                    })
-                }
+                    }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Total</td>
+                            <td>{totalPayment}</td>
+                        </tr>
+                    </tfoot>
+                </table>
                 <button onClick={saveOrder}>Confirmar pedido</button>
             </article>
         </section>
