@@ -11,8 +11,7 @@ const Menu = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        //setFoods(fillMenu()) 
-        getData('food', setFoods)
+        process.env.REACT_APP_USE_DUMMY === 'false' ? getData('food', setFoods) : setFoods(fillMenu())
         getTable()
     }, [])
 

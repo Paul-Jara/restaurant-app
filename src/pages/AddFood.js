@@ -12,9 +12,8 @@ const AddFood = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
+        process.env.REACT_APP_USE_DUMMY === 'false' ? getData('food', setFoods) : setFoods(fillMenu())
         getDefValue()
-        //setFoods(fillMenu())
-        getData('food', setFoods)
     }, [])
 
     const getDefValue = () => {

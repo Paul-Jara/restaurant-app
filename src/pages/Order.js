@@ -9,8 +9,7 @@ const Order = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        //setFoods(fillMenu()) 
-        getData('food', setFoods)
+        process.env.REACT_APP_USE_DUMMY === 'false' ? getData('food', setFoods) : setFoods(fillMenu())
         let auxOrderDetail = localStorage.getItem('orderDetail')
         if(auxOrderDetail) {
             setOrderDetail(JSON.parse(auxOrderDetail))

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { deleteData, getData, postData } from "./myAPIs"
 
 const starters = [
@@ -112,16 +113,17 @@ class InfoMenu {
         return this._info
     }
 }
+
 InfoMenu.prototype.data = function() {
     return this._info
 }
 
 const LoadMenu = () => {
     const [foods, setFoods] = useState()
-    getData('food', setFoods)
-    
-    
-    const loadMenu = () => {
+    const navigate = useNavigate()
+
+    const loadMenu = async () => {
+        await getData('food', setFoods)
         foods.forEach(food => {
             console.log(food.id)
         })
@@ -135,7 +137,8 @@ const LoadMenu = () => {
         alert('Los datos fueron cargados exitosamente.')
     }
 
-    const deleteMenu = () => {
+    const deleteMenu = async () => {
+        await getData('food', setFoods)
         foods.forEach(food => {
             console.log(food.id)
             deleteData('food', food.id)
@@ -147,6 +150,7 @@ const LoadMenu = () => {
         <div>
             <button onClick={loadMenu}>Cargar datos de incio a Firebase</button>
             <button onClick={deleteMenu}>Eliminar datos del menú incial</button>
+            <button onClick={() => navigate('/admin-bookings')}>Ver Reservaciones</button>
         </div>
     ) 
 }

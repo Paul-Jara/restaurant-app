@@ -9,6 +9,7 @@ import { Order } from './pages/Order';
 import { MessageSuccess } from './pages/MessageSuccess';
 import { BookingSuccess } from './pages/BookingSuccess';
 import { Admin } from './pages/Admin';
+import { AdminBookings } from './pages/AdminBookings';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/success-order' element={<MessageSuccess />} />
           <Route path='/booking-order' element={<BookingSuccess />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin-bookings" element={<AdminBookings />} />
         </Route>
       </Routes>
     </div>
