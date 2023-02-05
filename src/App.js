@@ -10,6 +10,7 @@ import { MessageSuccess } from './pages/MessageSuccess';
 import { BookingSuccess } from './pages/BookingSuccess';
 import { Admin } from './pages/Admin';
 import { AdminBookings } from './pages/AdminBookings';
+import { Help } from './pages/Help';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/booking-order' element={<BookingSuccess />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin-bookings" element={<AdminBookings />} />
+          <Route path='/help' element={<Help />} />
         </Route>
       </Routes>
     </div>

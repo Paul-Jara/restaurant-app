@@ -11,7 +11,7 @@ export const Header = () => {
                     <li><Link to='/booking'>Reservación</Link></li>
                     <li><Link to='/order'>Mi orden</Link></li>
                     <li><Link to='/menu'>Menú</Link></li>
-                    <li>Ayuda</li>
+                    <li><Link to='/help'>Ayuda</Link></li>
                     <li><Link to='/admin'>Administración</Link></li>
                 </ul>
             </nav>

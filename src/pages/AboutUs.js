@@ -4,7 +4,7 @@ const AboutUs = () => {
     return (
         <>
             <section id="jumbotron">
-                <article id="article-about">
+                <article className="article-about">
                     <div className="jumbotron-header">
                         <div className="mesa-elegante shadow"></div>
                         <h1 id="page-name">El Pailón Quiteño</h1>

@@ -93,7 +93,7 @@ article {
   align-items: center;
 }
 
-#article-about {
+.article-about {
   display: flex;
   flex-direction: column;
   width: 1200px;
@@ -207,7 +207,7 @@ button {
 
 @media screen and (min-width: 1024px) and (max-width: 1199px) {
 
-  #article-about {
+  .article-about {
     flex-direction: column;
     margin: 20px;
     width: 1024px;
@@ -231,7 +231,7 @@ button {
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
 
-  #article-about {
+  .article-about {
     flex-direction: column;
     margin: 20px;
     width: 767px;
@@ -267,7 +267,7 @@ button {
     flex-direction: column;
   }
 
-  #article-about {
+  .article-about {
     width: 550px;
     flex-direction: column;
     margin: 20px;

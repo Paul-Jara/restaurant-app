@@ -10,7 +10,7 @@ const AdminBookings = () => {
 
     return (
         <section>
-            <article id="article-order">
+            <article id="article-order" className="article-about">
                 <h1>Reservaciones</h1>
                 <table>
                     <thead>
