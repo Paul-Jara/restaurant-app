@@ -1,3 +1,14 @@
+
+# Datos importantes
+Este es el cuarto proyecto que se realizó para el Ucamp de Full stack con MERN y Node
+
+Pagina donde fue deployado el proyecto:
+
+    https://main--zesty-paletas-1f142d.netlify.app/
+
+
+Raul Gonzales tiene acceso al repositorio utilizado para subir este proyecto en Github
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
