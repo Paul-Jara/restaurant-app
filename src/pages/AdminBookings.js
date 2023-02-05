@@ -16,6 +16,7 @@ const AdminBookings = () => {
                     <thead>
                         <tr>
                             <th>Nombre</th>
+                            <th>Acompañantes</th>
                             <th>E-mail</th>
                             <th>Télefono</th>
                             <th>Celebración</th>
@@ -29,6 +30,7 @@ const AdminBookings = () => {
                         return (
                             <tr key={booking.id}>
                                 <td>{data.name} {data.lastName}</td>
+                                <td>{data.companion}</td>
                                 <td>{data.email}</td>
                                 <td>{data.phone}</td>
                                 <td>{data.celebration}</td>

@@ -17,7 +17,7 @@ const AboutUs = () => {
                         </div>
                         <div className="jumbo-item">
                             <h2>Nuestros servicios</h2>
-                            <p>Brindamos un ambiente calido y tranquilo para que disfutes de la compañia y de la gastronomía de ecuatoria de la mano de nuestros Chef que ha sido galardonado en varias ocaciones</p>
+                            <p>Brindamos un ambiente calido y tranquilo para que disfutes de la compañia y de la gastronomía ecuatoria, de la mano de nuestros Chef que ha sido galardonado en varias ocaciones</p>
                             <p>Hemos sido premidados por varias asociaciones que reconocen nuestro gran nivel de servicio y calidad en la atención</p>
                             <br />
                             <p>Ven y disfruta de nuestro exquisito <Link to="/menu">menú</Link></p>

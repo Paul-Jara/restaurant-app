@@ -3,6 +3,7 @@ const bookings = [
     {
         name: 'Amelie',
         lastName: 'Jara',
+        companion: 2,
         email: 'paul-jara@hotmail.com',
         phone: '0875545685',
         celebration: 'Boda',
@@ -12,6 +13,7 @@ const bookings = [
         name: 'Paulette',
         lastName: 'Jara',
         email: 'amelie-jara@hotmail.com',
+        companion: 1,
         phone: '0875544385',
         celebration: 'Cumpleaños',
         bookingDate: dateNow
@@ -20,6 +22,7 @@ const bookings = [
         name: 'Ruth',
         lastName: 'Campoverde',
         email: 'ruth-campoverde@hotmail.com',
+        companion: 3,
         phone: '0875545685',
         celebration: 'Cena',
         bookingDate: dateNow
@@ -28,6 +31,7 @@ const bookings = [
         name: 'Beto',
         lastName: 'Jara',
         email: 'beto-jara@hotmail.com',
+        companion: 0,
         phone: '0875545685',
         celebration: 'Cena',
         bookingDate: dateNow
@@ -36,6 +40,7 @@ const bookings = [
         name: 'Carmen',
         lastName: 'Gutierrez',
         email: 'carmen-gutierrez@hotmail.com',
+        companion: 5,
         phone: '0875545685',
         celebration: 'Cena',
         bookingDate: dateNow
@@ -44,6 +49,7 @@ const bookings = [
         name: 'Byron',
         lastName: 'Jara',
         email: 'byron-jara@hotmail.com',
+        companion: 1,
         phone: '0875545685',
         celebration: 'Almuerzo',
         bookingDate: dateNow
@@ -52,6 +58,7 @@ const bookings = [
         name: 'Veronica',
         lastName: 'Jara',
         email: 'vero-jara@hotmail.com',
+        companion: 3,
         phone: '0875545685',
         celebration: 'Desayuno',
         bookingDate: dateNow
