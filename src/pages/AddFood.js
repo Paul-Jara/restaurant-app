@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getData } from "../util/myAPIs"
 import LabelInput from "../component/LabelInput"
-import { fillMenu } from "../util/LoadMenu"
+import { fillMenu, loadCacheMenu } from "../util/LoadMenu"
 
 const AddFood = () => {
     const [foods, setFoods] = useState([])
@@ -11,8 +11,12 @@ const AddFood = () => {
     const { id, table } = params
     const navigate = useNavigate()
 
+    loadCacheMenu(foods, setFoods)
     useEffect(() => {
-        process.env.REACT_APP_USE_DUMMY === 'false' ? getData('food', setFoods) : setFoods(fillMenu())
+        let cacheMenu = localStorage.getItem('cacheMenu')
+        if(!cacheMenu) {
+            process.env.REACT_APP_USE_DUMMY === 'false' ? setFoods(fillMenu()) : getData('food', setFoods)
+        }
         getDefValue()
     }, [])
 

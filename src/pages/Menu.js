@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react"
-import { getData } from "../util/myAPIs"
 import { Food } from "../component/Food"
 import LabelInput from "../component/LabelInput"
 import { useNavigate } from "react-router-dom"
-import { fillMenu } from "../util/LoadMenu"
+import { fillMenu, InfoMenu, loadCacheMenu } from "../util/LoadMenu"
+import { getData } from "../util/myAPIs"
 
 const Menu = () => {
     const [foods, setFoods] = useState([])
     const [table, setTable] = useState()
     const navigate = useNavigate()
 
+    loadCacheMenu(foods, setFoods)
+
     useEffect(() => {
-        process.env.REACT_APP_USE_DUMMY === 'false' ? getData('food', setFoods) : setFoods(fillMenu())
+        let cacheMenu = localStorage.getItem('cacheMenu')
+        if(!cacheMenu) {
+            process.env.REACT_APP_USE_DUMMY === 'false' ? setFoods(fillMenu()) : getData('food', setFoods)
+        }
         getTable()
     }, [])
 
@@ -25,7 +30,7 @@ const Menu = () => {
         let auxTable = localStorage.getItem('table')
         setTable(auxTable ? auxTable : undefined)
     }
-    
+
     return (
         <section>
             <article id="article-menu">
@@ -36,7 +41,7 @@ const Menu = () => {
                 </div>
                 <div id="menu-container">
                     {
-                        foods.map((food, index) => {
+                        foods.length && foods?.map((food, index) => {
                             return <Food data={food} table={table} key={index}></Food>
                         })
                     }

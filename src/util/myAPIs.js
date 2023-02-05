@@ -4,6 +4,7 @@ import { collection, addDoc, getDocs, deleteDoc, updateDoc, doc } from 'firebase
 export const getData = async(collectionName, setter) => {
     const snapshot = await getDocs(collection(db, collectionName))
     const elements = snapshot.docs.map(element => element)
+    console.log(elements)
     setter(elements)
 } 
 

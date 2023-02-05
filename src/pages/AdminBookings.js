@@ -4,8 +4,8 @@ import { getData } from "../util/myAPIs"
 
 const AdminBookings = () => {
     const [bookings, setBookings] = useState([])
-    useEffect(() => {
-        process.env.REACT_APP_USE_DUMMY === 'false' ?  setBookings(getData('booking', setBookings)) : setBookings(fillBookings())
+    useEffect(() => {   
+        process.env.REACT_APP_USE_DUMMY == 'false' ?  setBookings(getData('booking', setBookings)) : setBookings(fillBookings())
     }, [])
 
     return (

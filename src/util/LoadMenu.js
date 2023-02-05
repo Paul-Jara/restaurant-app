@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { deleteData, getData, postData } from "./myAPIs"
+import { deleteData, getData, getDataWithOutSetter, postData } from "./myAPIs"
 
 const starters = [
     {
@@ -88,6 +88,24 @@ const drinks = [
     }
 ]
 
+const loadCacheMenu = (foods, setFoods) => {
+    let cacheMenu = localStorage.getItem('cacheMenu')
+    let result 
+    if(!cacheMenu && foods?.length > 0) {
+        result = foods.map(food => {
+            return new InfoMenu(food.id, food.data())
+        })
+        localStorage.setItem('cacheMenu', JSON.stringify(result))
+    } else if(cacheMenu) {
+        result = JSON.parse(cacheMenu).map(food => {
+            return new InfoMenu(food._id, food._info)
+        })
+    }
+    if(cacheMenu && foods.length == 0) {
+        setFoods(result)
+    }
+}
+
 const allFood = starters.concat(drinks)
 
 const fillMenu = function() {
@@ -98,8 +116,7 @@ const fillMenu = function() {
     return menuFood;
 }
 
-
-class InfoMenu {
+export class InfoMenu {
     constructor(id, info) {
         this._id = id
         this._info = info
@@ -156,4 +173,4 @@ const LoadMenu = () => {
     ) 
 }
 
-export { fillMenu, LoadMenu }
+export { fillMenu, loadCacheMenu, LoadMenu }

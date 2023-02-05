@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react"
 import { fillOrders } from "../util/DummyOrders"
-import { fillMenu } from "../util/LoadMenu"
+import { fillMenu, loadCacheMenu } from "../util/LoadMenu"
 import { getData } from "../util/myAPIs"
 
 const AdminOrders = () => {
     const [orders, setOrders] = useState([])
     const [foods, setFoods] = useState([])
+    
+    loadCacheMenu(foods, setFoods)
     useEffect(() => {
         process.env.REACT_APP_USE_DUMMY === 'false' ? getData('order', setOrders) : setOrders(fillOrders())
-        process.env.REACT_APP_USE_DUMMY === 'false' ? getData('food', setFoods) : setFoods(fillMenu())
+        let cacheMenu = localStorage.getItem('cacheMenu')
+        if(!cacheMenu) {
+            process.env.REACT_APP_USE_DUMMY === 'false' ? setFoods(fillMenu()) : getData('food', setFoods)
+        }
     }, [])
-
-    useEffect(() => {
-        orders.map(order => console.log(order.data()))
-    }, [orders])
 
     return (
         <section>

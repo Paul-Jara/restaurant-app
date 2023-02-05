@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { fillMenu } from "../util/LoadMenu"
+import { fillMenu, loadCacheMenu } from "../util/LoadMenu"
 import { getData, postData } from "../util/myAPIs"
 
 const Order = () => {
@@ -8,8 +8,12 @@ const Order = () => {
     const [orderDetail, setOrderDetail] = useState()
     const navigate = useNavigate()
 
+    loadCacheMenu(foods, setFoods)
     useEffect(() => {
-        process.env.REACT_APP_USE_DUMMY === 'false' ? getData('food', setFoods) : setFoods(fillMenu())
+        let cacheMenu = localStorage.getItem('cacheMenu')
+        if(!cacheMenu) {
+            process.env.REACT_APP_USE_DUMMY === 'false' ? setFoods(fillMenu()) : getData('food', setFoods)
+        }
         let auxOrderDetail = localStorage.getItem('orderDetail')
         if(auxOrderDetail) {
             setOrderDetail(JSON.parse(auxOrderDetail))
