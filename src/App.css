@@ -205,6 +205,11 @@ button {
   width: 300px;
 }
 
+
+td {
+  vertical-align: top;
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1199px) {
 
   .article-about {

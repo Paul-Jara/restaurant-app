@@ -15,7 +15,7 @@ const Booking = ({data}) => {
     const [celebration, setCelebration] = useState(data ? data.celebration : '')
 
     const saveBooking = () => {
-        let booking = {'name': name, 'lastName': lastName, 'email': email, 'phone': phone, 'celebration': celebration, 'date': bookingDate}
+        let booking = {'name': name, 'lastName': lastName, 'email': email, 'phone': phone, 'celebration': celebration, 'date': JSON.stringify(bookingDate)}
         postData('booking', booking)
         navigate('/booking-order')
     }

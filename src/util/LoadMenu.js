@@ -151,6 +151,7 @@ const LoadMenu = () => {
             <button onClick={loadMenu}>Cargar datos de incio a Firebase</button>
             <button onClick={deleteMenu}>Eliminar datos del menú incial</button>
             <button onClick={() => navigate('/admin-bookings')}>Ver Reservaciones</button>
+            <button onClick={() => navigate('/admin-orders')}>Ver ordenes</button>
         </div>
     ) 
 }
